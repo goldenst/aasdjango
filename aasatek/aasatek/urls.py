@@ -7,10 +7,9 @@ from django.urls import path
 from .views import home_page, navar, login_page, register_page
 
 urlpatterns = [
-    path('', home_page),
-    path('login/', login_page),
-    path('register/', register_page),
-    path('nav/', navar),
+    path('', home_page, name='home'),
+    path('login/', login_page, name='login'),
+    path('register/', register_page, name='register'),
     path('admin/', admin.site.urls),
 ]
 
