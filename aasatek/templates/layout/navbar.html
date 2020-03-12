@@ -13,6 +13,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        {% if user.is_authenticated %}
         <li class="nav-item {% if request.path == cars_url %} active {% endif %}">
           <a class="nav-link" href="{{ cars_url }}">Cars <i class="fas fa-car"></i></a>
         </li>
@@ -23,9 +24,14 @@
           <a class="nav-link" href="{{ scales_url }}">Scales <i class="fas fa-balance-scale"></i></a>
         </li>
         <li class="nav-item {% if request.path == login_url %} active {% endif %}">
+          <a class="nav-link" href="{{ login_url }}">Log Out <i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        {% else %}
+      
+        <li class="nav-item {% if request.path == login_url %} active {% endif %}">
           <a class="nav-link" href="{{ login_url }}">Login <i class="fas fa-sign-in-alt"></i></a>
         </li>
-        
+        {% endif %}
       </ul>
     </div>
   </nav>

@@ -34,7 +34,7 @@ def login_page(request):
             # print(request.user.is_authenticated)
             login(request, user)
             context['form'] = LoginForm()
-            return redirect('/nav')
+            return redirect('/')
         else:
             print('error')
     return render(request, 'auth/login.html', context)

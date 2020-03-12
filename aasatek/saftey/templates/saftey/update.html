@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="container my-3">
+  <h4>{{object.carNum}} {{object.division}}</h4>
+  <hr>
+  <div class="form">
+    <div class="col">
+      <form action="POST">{% csrf_token %}
+        {{form}}
+        <br>
+        <button class="btn btn-primary btn-block">Submit</button>
+      </form>
+     
+    </div>
+    
+  </div>
+</div>
+ 
+
+{% endblock %}
+
+
+{{object.carNum}} <br>
+{{object.division}}

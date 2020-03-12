@@ -25,3 +25,7 @@ class Saftey(models.Model):
   weightBlocks      = models.CharField(max_length=20)
   drivelinepainted  = models.CharField(max_length=20)
   notes             = models.TextField(max_length=20)
+  recheck           = models.TextField(max_length=20, default='False')
+
+  def __str__(self):
+    return self.carNum

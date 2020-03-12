@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="container my-3">
+  <h4>Saftey Inspection Form </h4>
+  <hr>
+  <div class="form">
+    <div class="col">
+      <form method="POST"> {% csrf_token %} 
+        {{form }}
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+     
+    </div>
+    
+  </div>
+</div>
+ 
+
+{% endblock %}
