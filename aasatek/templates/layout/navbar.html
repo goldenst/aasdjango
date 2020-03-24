@@ -18,7 +18,7 @@
           <a class="nav-link" href="{{ cars_url }}">Cars <i class="fas fa-car"></i></a>
         </li>
         <li class="nav-item {% if request.path == saftey_url %} active {% endif %}">
-          <a class="nav-link" href="{{ saftey_url }}">Saftey <i class="fas fa-hard-hat"></i></a>
+          <a class="nav-link" href="{% url 'saftey:list' %}">Saftey <i class="fas fa-hard-hat"></i></a>
         </li>
         <li class="nav-item {% if request.path == scales_url %}active{% endif %}">
           <a class="nav-link" href="{{ scales_url }}">Scales <i class="fas fa-balance-scale"></i></a>

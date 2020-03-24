@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, get_user_model
 
 from .forms import LoginForm, RegisterForm
 
+User = get_user_model()
 
 def home_page(request):
     context = {
@@ -41,7 +42,7 @@ def login_page(request):
 
 # --------------- Register Page------------------------
 
-User = get_user_model()
+
 def register_page(request):
     form = RegisterForm(request.POST or None)
     context = {

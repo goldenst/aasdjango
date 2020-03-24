@@ -2,19 +2,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 
-from saftey.views import saftey_list_view, saftey_update_view, createSaftey
-from .views import home_page, navar, login_page, register_page
+
+from aasatek.views import home_page, navar, login_page, register_page
 
 urlpatterns = [
     path('', home_page, name='home'),
     path('login/', login_page, name='login'),
     path('register/', register_page, name='register'),
-    path('saftey/', saftey_list_view, name='saftey'),
-    path('create/', createSaftey, name='create'),
-    path('saftey/<pk>', saftey_update_view, name='update'),
+    path('saftey/', include('saftey.urls', namespace='saftey')),
     path('admin/', admin.site.urls),
 ]
 

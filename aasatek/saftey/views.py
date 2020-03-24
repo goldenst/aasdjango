@@ -1,37 +1,32 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import View, TemplateView, ListView, DetailView, FormView, UpdateView, CreateView
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Saftey
-from .forms import SafteyFormA
+from . import models
+from .forms import SafteyForm
 
 
-def saftey_list_view(request):
-    queryset = Saftey.objects.all()
-    context = {
-        'object_list': queryset
-    }
-    return render(request, 'saftey/list.html', context)
+class SafteyListView(ListView):
+    #   context name is saftey_list
+    model = models.Saftey
 
+class SafteyDetailView(DetailView):
+    context_object_name = 'saftey_detail'
+    model = models.Saftey
+    template_name = 'saftey/saftey_detail.html'
 
-#  Create Safty Sheet-----------------------------------------
-def createSaftey(request):
-    form = SafteyFormA(request.POST or None) 
-    if form.is_valid():
-        form.save()
-        form = SafteyFormA()
-        return redirect('/')
-    context = {
-        'form': form
-    }
-    return render(request, 'saftey/saftey_create.html', context)
+class SafteyCreateView(CreateView):
+    model = models.Saftey
+    # form_class = SafteyForm
+    exclude = ['user']
+    fields = '__all__'
+    template_name = 'saftey/saftey_create.html'
 
+class SafteyUpdateView(UpdateView):
+    model = models.Saftey
+    # form_class = SafteyForm
+    
+    fields = '__all__'
+    exclude = ['user']
+    template_name = 'saftey/saftey_create.html'
 
-# Update view -----------------------------------------------
-
-
-def saftey_update_view(request, pk=None, *args, **kwargs):
-    form = SafteyForm(request.POST or None)
-    context = {
-        'form': form
-    }
-    return render(request, 'saftey/update.html', context)
+    

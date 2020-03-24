@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="container text-center">
+  <h2>Saftey Details:  Inspected on: {{ saftey_detail.created_at}}</h2>
+  <div class="card border-danger mb-3" style="max-width: 128rem;">
+    <div class="card-header bg-transparent border-danger"> <h4>Car Number: {{ saftey_detail.carNum }}
+     <span>Division:  {{ saftey_detail.division }}</span> </h4> </div>
+    <div class="card-body ">
+      <h6 class="card-title">Helmet Date: {{ saftey_detail.helmetDate}}</h6>
+      <h6 class="card-title">Seat Belt Date: {{ saftey_detail.seatbeltDate}}</h6>
+      <h6 class="card-title">Window Nett Date: {{ saftey_detail.windowNet}}</h6>
+      <h6 class="card-title">Head & neck Restraint: {{ saftey_detail.headAndNeck }}</h6>
+      <h6 class="card-title">Fire Suit: {{ saftey_detail.fireSuite}}</h6>
+      <h6 class="card-title">Gloves: {{ saftey_detail.gloves}}</h6>
+      <h6 class="card-title">Shoes: {{ saftey_detail.shoes}}</h6>
+      <h6 class="card-title">Seat: {{ saftey_detail.seat}}</h6>
+      <h6 class="card-title">Fire System: {{ saftey_detail.firesystem }}</h6>
+      <h6 class="card-title">Radio: {{ saftey_detail.radio}}</h6>
+      <h6 class="card-title">Transponder: {{ saftey_detail.transponder}}</h6>
+      <h6 class="card-title">Driveline loop: {{ saftey_detail.drivelineLoop}}</h6>
+      <h6 class="card-title">Side Exhaust: {{ saftey_detail.sideExhaust}}</h6>
+      <h6 class="card-title">Master Kill: {{ saftey_detail.masterKill}}</h6>
+      <h6 class="card-title">Fuel lines: {{ saftey_detail.fuelLines}}</h6>
+      <h6 class="card-title">Fuel Cell Height: {{ saftey_detail.fuelCellHeight}}</h6>
+      <h6 class="card-title">Colapisable Collumn: {{ saftey_detail.colapsableCoulum}}</h6>
+      <h6 class="card-title">Cage  Min req: {{ saftey_detail.cage}}</h6>
+      <h6 class="card-title">Weight Blocks Secure & Painted: {{ saftey_detail.weightBlocks}}</h6>
+      <h6 class="card-title">Driveline Painted: {{ saftey_detail.drivelinepainted}}</h6>
+      <h6 class="card-title">Recheck Needed: {{ saftey_detail.recheck}}</h6>
+      <h6 class="card-title">Inspected By: {{ saftey_detail.User}}</h6>
+      <h6 class="card-title">Notes:</h6> <p>{{ saftey_detail.notes}}</p>
+
+
+
+    </div>
+    <div class="card-footer bg-transparent border-danger btn-block"><a class="btn btn-warning" href="{% url 'saftey:update' pk=saftey_detail.pk %}">Update</a></div>
+  </div>
+  
+  
+  <p></p>
+
+</div>
+
+{% endblock %}

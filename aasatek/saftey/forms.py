@@ -1,16 +1,15 @@
 from django import forms
-# from django.contrib.auth import  get_user_model
 from .models import Saftey
 
-# User = get_user_model()
 
-class SafteyFormA(forms.ModelForm):
+class SafteyForm(forms.ModelForm):
   class Meta:
     model = Saftey
+    exclude = ['user']
     fields = '__all__'
 
 
-class SafteyForm(forms.Form):
+class SafteyForm1(forms.Form):
     carNum = forms.CharField(
         label="Car Number",
         widget=forms.TextInput(
