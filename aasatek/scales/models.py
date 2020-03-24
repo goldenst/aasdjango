@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Scales(models.Model):
@@ -13,3 +15,6 @@ class Scales(models.Model):
 
   def __str__(self):
     return self.carNum
+
+  def get_absolute_url(self):
+    return reverse('scales:detail', kwargs={'pk': self.pk})
