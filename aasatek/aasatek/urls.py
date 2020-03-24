@@ -13,6 +13,7 @@ urlpatterns = [
     path('login/', login_page, name='login'),
     path('register/', register_page, name='register'),
     path('saftey/', include('saftey.urls', namespace='saftey')),
+    path('scales/', include('scales.urls', namespace='scales')),
     path('admin/', admin.site.urls),
 ]
 

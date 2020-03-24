@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     #  my apps
 
     'saftey',
+    'scales',
 ]
 
 MIDDLEWARE = [
