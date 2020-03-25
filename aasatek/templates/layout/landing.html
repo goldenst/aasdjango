@@ -1,14 +1,26 @@
 {% extends 'base.html' %}
-
 {% load static %}
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
 
 
 {% block content %}
-<body>
 
+<body>
   <div class="container">
     <h2>{{title}}</h2>
-    <img src=' {% static 'img/aaslogo.png' %}' class='img-fluid' >
+    <h6>
+      Current Time is {% now "F j H:i" %} 
+    </h6>
+    <img src=' {% static 'img/aaslogo.png' %}' class='img-fluid'>
+
+    <h3>Todays Registered Car Count: {{count}}  {{lm}}</h3>
+      {% for car in car %}
+        {% if car.is_racing %}
+          <p>{{car.carNum}} -- {{car.driver}} -- {{car.division}}</p>
+        {% endif %}
+      {% endfor %}
   </div>
 
 {% endblock %}
+</body>

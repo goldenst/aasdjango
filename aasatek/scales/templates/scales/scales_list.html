@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <br>
+  <h3>Completed Weight Slips</h3>
+  <hr />
+  <h4> Select division: </h4>
+  
+    
+      <a class="btn btn-warning" href="{% url  'scales:create' %}">Add Weight Sheet</a>
+      <table class="table table-hover table-striped text-center">
+        <thead class="thead-dark text-center">
+          <tr>
+
+            <th scope="col">Car Number</th>
+            <th scope="col">Division</th>
+            <th scope="col">Qualifing Weight</th>
+            <th scope="col">Qualifing Left </th>
+            <th scope="col">Pre Race Weight </th>
+            <th scope="col">Pre Race Left </th>
+            <th scope="col">Mid Race Weight </th>
+            <th scope="col">Mid Race Left </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+          {% for obj in scales_list %}
+
+          <tr>
+            <td>{{obj.carNum}}</td>
+            <td>{{ obj.division }}</td>
+            <td>{{ obj.preQualifingWeight}} lbs.</td>
+            <td>{{ obj.preQualifingLeft}} %</td>
+            <td>{{ obj.raceStartWeight }} lbs.</td>
+            <td>{{ obj.raceStartLeft}} %</td>
+            <td>{{ obj.midRaceStart}} lbs.</td>
+            <td>{{ obj.midRaceLeft}} %</td>
+            <td><a class="btn btn-primary" href="{{obj.id}}">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+  
+    </div>
+
+{% endblock %}

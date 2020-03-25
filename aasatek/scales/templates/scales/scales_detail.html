@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container text-center">
+  <h2>Scales Details: </h2>
+  <div class="card border-danger mb-3" style="max-width: 128rem;">
+    <div class="card-header bg-transparent border-danger">
+      <h4>Car Number: {{ scales_detail.carNum }}
+        <span>Division: {{ scales_detail.division }}</span> </h4>
+    </div>
+    <div class="card-body ">
+      <h6 class="card-title">Qualifing Weight: {{ scales_detail.preQualifingWeight }} -- Qualifing leftside:
+        {{ scales_detail.preQualifingLeft }}% -- Weight time: {{scales_detail.created_at}}</h6>
+      <hr>
+      <h6 class="card-title">Pre Race Weight: {{ scales_detail.raceStartWeight}} -- Pre Race Leftside:
+        {{ scales_detail.raceStartLeft }}% -- Weight time: {{scales_detail.updated_at}}</h6>
+      <hr>
+      <h6 class="card-title">Halftime weight: {{ scales_detail.midRaceStart}} --halftime Leftside:
+        {{ scales_detail.midRaceLeft}}% -- Weight time: {{scales_detail.updated_at}}</h6>
+
+
+    </div>
+    <div class="card-footer bg-transparent border-danger btn-block"><a class="btn btn-warning"
+        href="{% url 'scales:update' pk=scales_detail.pk %}">Update</a></div>
+  </div>
+
+
+  <p></p>
+
+</div>
+
+{% endblock %}

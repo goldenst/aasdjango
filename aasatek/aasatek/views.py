@@ -4,12 +4,17 @@ from django.contrib import admin
 from django.contrib.auth import authenticate, login, get_user_model
 
 from .forms import LoginForm, RegisterForm
+from car.models import Car
 
 User = get_user_model()
 
 def home_page(request):
+    car = Car.objects.all()
+    count = Car.objects.filter(is_racing=True).count()
     context = {
-        'title': "Welcone to aas"
+        'title': "Welcone to aas",
+        'car': car,
+        'count': count
     }
     return render(request, 'layout/landing.html', context)
 
