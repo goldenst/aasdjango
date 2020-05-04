@@ -5,4 +5,8 @@ from django.contrib import admin
 
 from .models import Scales
 
-admin.site.register(Scales)
+
+class ScalesAdmin(admin.ModelAdmin):
+  list_display = ['carNum', 'race', 'created_at', 'division']
+
+admin.site.register(Scales, ScalesAdmin)

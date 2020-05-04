@@ -7,4 +7,10 @@ admin.site.index_title = " AAS Track Tek Admin Area"
 
 from .models import Saftey
 
-admin.site.register(Saftey)
+
+class SafteyAdmin(admin.ModelAdmin):
+  list_display = ['carNum', 'created_at', 'division', 'recheck']
+
+
+admin.site.register(Saftey, SafteyAdmin)
+
